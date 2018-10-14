@@ -6,28 +6,20 @@ using System.Text;
 
 namespace PetDesk.Paws.Domain.Clients
 {
-    public sealed class Client
+    public sealed class Client : AggregateRoot
     {
-        public Id Id { private set; get; }
+        public Name FirstName { private set; get; }
 
-        public Name Name { private set; get; }
-
-        public Guid AccountId { private set; get; }
-
-        //This is useful if we decide to implement event sourcing
-        public int Version { private set; get; }
+        public Name LastName { private set; get; }
 
         private Client() { }
 
-        public Client(Name name)
+        public Client(Name firstName, Name lastName)
         {
             Id = Guid.NewGuid();
-            Name = name;
+            FirstName = firstName;
+            LastName = lastName;
         }
 
-        //public void SetAccountId(Id accountId)
-        //{
-        //    AccountId = accountId;
-        //}
     }
 }

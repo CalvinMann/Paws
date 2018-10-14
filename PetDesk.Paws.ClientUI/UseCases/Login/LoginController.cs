@@ -6,12 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PetDesk.Paws.ClientUI.UseCases.Login
 {
-    //[Route("Login")]
+    //[Route("login")]
     public class LoginController : Controller
     {
+
         public IActionResult Index()
         {
             return View("Login");
         }
+
     }
 }

@@ -4,6 +4,7 @@ using System.Text;
 
 namespace PetDesk.Paws.Domain.ValueObjects
 {
+    //I could turn this into a base class 
     public sealed class Name
     {
         private string _text;

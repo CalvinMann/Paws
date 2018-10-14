@@ -10,8 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PetDesk.Paws.Application.Repositories;
-using PetDesk.Paws.Infrastructure.Repositories.EntityFramework;
 
 namespace PetDesk.Paws.ClientUI
 {
@@ -48,13 +46,14 @@ namespace PetDesk.Paws.ClientUI
 
             //services.AddSignalR(); //Adds the SignalR 
 
-            // register the DbContext on the container, getting the connection string from
-            var connectionString = Configuration["ConnectionStrings:PawsDBConnectionString"];
-            services.AddDbContext<PawsDbContext>(o => o.UseSqlServer(connectionString));
+            //// register the DbContext on the container, getting the connection string from
+            //var connectionString = Configuration["ConnectionStrings:PawsDBConnectionString"];
+            //services.AddDbContext<PawsDbContext>(o => o.UseSqlServer(connectionString));
 
 
-            //Infrastructure
-            services.AddScoped<IAppointmentsRepository, AppointmentsRepository>();
+            ////Infrastructure
+            //services.AddScoped<IAppointmentReadOnlyRepository, AppointmentsRepository>();
+            //services.AddScoped<IAppointmentWriteOnlyRepository, AppointmentsRepository>();
 
 
         }
@@ -73,7 +72,7 @@ namespace PetDesk.Paws.ClientUI
                     template: "{controller=Login}/{action=Index}");
             });
 
-            //app.UseSignalR(routes => routes.MapHub<object>("/hub"));
+            //app.UseSignalR(routes => routes.MapHub<AppointmentHub>("/appointmenthub"));
         }
     }
 }

@@ -1,3 +1,33 @@
-﻿<form asp-controller="Appointments" asp-action="Index">
-    <button type="submit">Login</button>
-</form>
+﻿
+<h2>Welcome To PAWS</h2>
+
+
+
+<h3>FRAMEWORKS</h3>
+<h4>WebApi - To Recieve Messages. Any client can interface to POST</h4>
+    SignalR - Real time appointments (mulit clients. Transport agnostic/adaptable for non websocket clients)
+    EntityFramework + SQL - Data persistence
+    (Bonus) Twilio - Appointment Reschedule
+
+
+    ARCHITECTURE
+    Clean Architecture - Clear and Consise UseCases
+    CQRS - Command and Query seperation for clarity
+    DDD - For business rules. Reuse of business logic is possibly with seperating domain logic
+
+    BUSINESS VALUE (PetDesk Competitive Advantage Suggestions)
+    EventSourcing - Adding event sourcing enables us to track all events from users and the application.
+    This could be extrememly valuable data for pet desk or its customers. Providing insights
+    enables better decision making.
+    (ex: knowing when the most appointments are scheduled. What services. All real time on dashboard)
+
+
+    I choose to use MVC strictly as a web client instead of incorporating the whole application into one project. 
+    Although implementing all of the code into one MVC project is less time consuming and has simplicity benefits,
+    I thought the additional time and complexity costs would pay off in the long run. I choose to implement a webAPI as 
+    the applicaiton interface to keep it loosely coupled from any particular UI. This enables any UI to take advantage of
+    the API whether it be a mobile device, desktop application, different web clients..ect. 
+
+    <form asp-controller="Dashboard" asp-action="Index">
+        <button type="submit">Go To Dashboard</button>
+    </form>

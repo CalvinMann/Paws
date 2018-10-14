@@ -10,8 +10,4 @@
     <PackageReference Include="OdeToCode.AddFeatureFolders" Version="2.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\PetDesk.Paws.Infrastructure\PetDesk.Paws.Infrastructure.csproj" />
-  </ItemGroup>
-
 </Project>

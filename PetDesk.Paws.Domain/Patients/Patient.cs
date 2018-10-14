@@ -10,19 +10,14 @@ namespace PetDesk.Paws.Domain.Patients
     {
         public Id Id { private set; get; }
 
-        public Name Name { private set; get; }
-
-        public Guid AccountId { private set; get; }
-
-        //This is useful if we decide to implement event sourcing
-        public int Version { private set; get; }
+        public Name FirstName { private set; get; }
 
         private Patient() { }
 
-        public Patient(Name name)
+        public Patient(Name firstName)
         {
             Id = Guid.NewGuid();
-            Name = name;
+            FirstName = firstName;
         }
     }
 }

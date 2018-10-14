@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace PetDesk.Paws.Application.Results
+namespace PetDesk.Paws.WebApi.UseCases.RequestAppointment
 {
-    public class AnimalDTO
+    public class Animal
     {
-
         public int AnimalId { get; set; }
         public string FirstName { get; set; }
         public string Species { get; set; }

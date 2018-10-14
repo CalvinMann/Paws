@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PetDesk.Paws.Application.Repositories
 {
-    public interface IAppointmentsRepository
+    public interface IClientWriteOnlyRepository
     {
 
     }

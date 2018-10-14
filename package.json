@@ -1,0 +1,23 @@
+{
+  "name": "Paws",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CalvinMann/Paws.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CalvinMann/Paws/issues"
+  },
+  "homepage": "https://github.com/CalvinMann/Paws#readme",
+  "dependencies": {
+    "@aspnet/signalr": "^1.0.4"
+  }
+}

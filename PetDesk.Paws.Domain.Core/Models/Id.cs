@@ -9,13 +9,10 @@ namespace PetDesk.Paws.Domain.Core.Models
     {
         private Guid _internalId;
 
-        //Here we check that the Guid is valid and throw an exception if it isnt. 
+        //Here we check that the int is valid and throw an exception if it isnt. 
         //This is done so that any class that uses this value object can ensure that the value is always in a true state
         public Id(Guid id)
         {
-            if (id == null || id == Guid.Empty)
-                throw new GuidShouldNotBeEmptyException("The 'Id' field is required");
-
             _internalId = id;
         }
 

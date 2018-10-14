@@ -8,32 +8,33 @@ namespace PetDesk.Paws.Domain.Appointments
     //Seal the class so nothing can inherit from it
     public sealed class Appointment : AggregateRoot
     {
-        public int AppointmentId { private set; get; }
-        public bool IsAccountEnabled { get; private set; }
-        public Guid SubscriberId { private set; get; }
+        public Id ClientId { private set; get; }
+        public string AppointmentType { private set; get; }
 
 
         #region Constructors
 
         private Appointment() { }
 
-        public Appointment(int appointmentId)
+        public Appointment(string appointmentType, Id clientId)
         {
             Id = Guid.NewGuid();
-            AppointmentId = appointmentId;
-            IsAccountEnabled = true;
+            ClientId = clientId;
+          
         }
 
         #endregion
 
         #region Load
 
-        public static Appointment Load(int appointmentId)
+        public static Appointment Load(Id appointmentId, Id clientId, string appointmentType)
         {
             Appointment appointment = new Appointment()
             {
-                AppointmentId = appointmentId
-            
+                Id = appointmentId,
+                ClientId = clientId,
+                AppointmentType = appointmentType
+
 
                 //Set variables here
             };
@@ -46,19 +47,7 @@ namespace PetDesk.Paws.Domain.Appointments
         #region Commands
 
 
-        public void SetSubcriberId(Id subscriberId)
-        {
-            ////Raise the event
-            //SubscriberIdIsSet subscriberIsSet = new SubscriberIdIsSet(this.Id, this.Version, subscriberId);
-            //Raise(subscriberIsSet);
-        }
-
-        public void AddReminder(string reminderName)
-        {
-            //Reminder reminder = new Reminder(Guid.NewGuid(), reminderName);
-
-
-        }
+       
 
         #endregion
 

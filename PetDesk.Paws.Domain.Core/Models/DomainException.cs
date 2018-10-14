@@ -14,9 +14,9 @@ namespace PetDesk.Paws.Domain.Core.Models
     }
 
     //I set the constructor to be internal so that I can only implmenent and set the exception string in the domain project
-    public class GuidShouldNotBeEmptyException : DomainException
+    public class IdShouldNotBeEmptyException : DomainException
     {
-        internal GuidShouldNotBeEmptyException(string message)
+        internal IdShouldNotBeEmptyException(string message)
             : base(message)
         { }
     }

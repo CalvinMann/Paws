@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using PetDesk.Paws.Application.Results;
+using Microsoft.AspNetCore.SignalR;
+using PetDesk.Paws.Infrastructure.WebSockets.SignalR;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace PetDesk.Paws.WebApi.Controllers
+namespace PetDesk.Paws.WebApi.UseCases.RequestAppointment
 {
-    [Route("api/appointment")]
+    [Route("api/[controller]")]
     public class AppointmentController : Controller
     {
-        private readonly IHubContext<object> _hub;
 
-        public AppointmentController(IHubContext<object> hub )
+        public AppointmentController()
         {
-            _hub = hub;
+           
         }
 
         // POST api/appointment
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]  AppointmentDTO aptDto)
+        public async Task<IActionResult> Post([FromBody]  RequestedAppointment reqApt)
         {
+
             if (ModelState.IsValid)
             {
                 return Ok();
