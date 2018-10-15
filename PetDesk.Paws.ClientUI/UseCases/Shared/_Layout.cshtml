@@ -1,25 +1,42 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    @RenderSection("Styles", false)
+
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a asp-page="/Dashboard" class="navbar-brand">Dashboard</a>
-            </div>
-        </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - PAWSs</p>
-        </footer>
+    <div id="header">
+        <h1>
+            PAWS
+        </h1>
+        <ul id="navlist">
+            <li class="first">
+                <a href="/"
+                   id="current">Project Info</a>
+            </li>
+            <li>
+                <a href="/Dashboard/">Dashboard</a>
+            </li>
+        </ul>
     </div>
+
+    @RenderBody()
+
+    
+        <script src="~/lib/bootstrap/dist/js/jquery-3.3.1.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  
+        <script src="~/lib/bootstrap/dist/js/jquery-3.3.1.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+   
 
 </body>
 </html>

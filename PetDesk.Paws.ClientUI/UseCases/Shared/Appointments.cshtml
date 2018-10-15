@@ -1,0 +1,43 @@
+﻿
+<style>
+    table {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+        padding-top: 25px;
+        width: 35%;
+    }
+
+        table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+</style>
+
+<h2> Confirmed Appointments </h2>
+
+<table style="width:100%">
+    <tr>
+        <th>ClientId</th>
+        <th>PatientId</th>
+        <th>Appointment Type</th>
+        <th>Appointment Date</th>
+    </tr>
+
+    @foreach (var appointment in Model)
+    {
+        <tr>
+            <td>@appointment.ClientId</td>
+            <td>@appointment.PatientId</td>
+            <td>@appointment.AppointmentType</td>
+            <td>@appointment.RequestDate</td>
+        </tr>
+    }
+
+
+</table>
+
+

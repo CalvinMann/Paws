@@ -1,0 +1,34 @@
+﻿
+<style>
+    table {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        width: 35%;
+    }
+
+        table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+</style>
+
+<h2> Requested Appointments </h2>
+<table style="width:100%" id="ReqAptTable" ReqAptTable>
+    <tr>
+        <th>ClientId</th>
+        <th>PatientId</th>
+        <th>Appointment Type</th>
+        <th>Requested Date</th>
+        <th>Confirm</th>
+        <th>Reschedule</th>
+    </tr>
+</table>
+
+<script src="~/lib/signalr/signalr.js"></script>
+<script src="~/js/appointments.js"></script>

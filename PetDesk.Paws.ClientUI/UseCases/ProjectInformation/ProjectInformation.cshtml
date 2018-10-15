@@ -1,5 +1,5 @@
 ﻿
-<h2>Welcome To PAWS</h2>
+
 
 <p>
     <h3>FRAMEWORKS</h3>
@@ -20,11 +20,23 @@
     <br>DDD - For business rules. Reuse of business logic is possibly with seperating domain logic. Well encapsulated
     <br>
     <br>
+
+    <img src="~/images/Clean.png" alt="CleanArchitecture">
+</p>
+
+<p>
+    <h3> SCALABILITY </h3>
+    <br>Async - Creates thread allocation and UI responsiveness
+    <br>Monolithic (Adding VM's)  - Example shows how using docker with azure can scale
+    <br>
+    <br>
+
+    <img src="~/images/Scale.png" alt="Docker and Azure">
 </p>
 
 
 <p>
-    <h3>BUSINESS VALUE IDEAS</h3>
+    <h3>TECHNIQUES FOR COMPETITIVE ADVANTAGES</h3>
     <br>EventSourcing - Adding event sourcing enables us to track all events from users and the application.
 
     <br>This could be extrememly valuable data for pet desk or its customers. Providing insights
@@ -32,7 +44,3 @@
     <br>(ex: knowing when the most appointments are scheduled. What services. All real time on dashboard)
     <br>
 </p>
-
-    <form asp-controller="Dashboard" asp-action="Index">
-        <button type="submit">Go To Dashboard</button>
-    </form>

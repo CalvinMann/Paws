@@ -4,15 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace PetDesk.Paws.ClientUI.UseCases.Login
+namespace PetDesk.Paws.ClientUI.UseCases.ProjectInformation
 {
-    //[Route("login")]
-    public class LoginController : Controller
+    //[Route("api/[controller]")]
+    public class ProjectInformationController : Controller
     {
-
         public IActionResult Index()
         {
-            return View("Login");
+            return View("ProjectInformation");
         }
 
     }

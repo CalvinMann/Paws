@@ -1,0 +1,19 @@
+﻿@model IEnumerable<PetDesk.Paws.Application.Results.AppointmentResult>;
+
+
+@{
+
+    await Html.RenderPartialAsync("Appointments", Model);
+
+}
+
+
+
+@{
+
+    await Html.RenderPartialAsync("RequestedAppointments");
+
+}
+
+
+

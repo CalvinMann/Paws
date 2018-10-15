@@ -38,7 +38,7 @@ namespace PetDesk.Paws.WebApi.UseCases.RequestAppointment
                           appointment.AppointmentType, appointment.RequestDate, 
                           appointment.ClientId, appointment.PatientId);
 
-              await _hubContext.Clients.All.SendAsync("ReceiveMessage", "Test");
+              await _hubContext.Clients.All.SendAsync("ReceiveAppointment", appointmentResult);
 
                 return Ok();
             }
