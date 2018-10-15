@@ -12,6 +12,20 @@ namespace PetDesk.Paws.Domain.Clients
 
         public Name LastName { private set; get; }
 
+        //never hold object references
+        //store ids 
+        public IReadOnlyCollection<Guid> Appointments
+        {
+            get
+            {
+                IReadOnlyCollection<Guid> readOnly = _appointments.GetAppointmentIds();
+                return readOnly;
+            }
+        }
+
+        private AppointmentCollection _appointments;
+
+
         private Client() { }
 
         public Client(Name firstName, Name lastName)
@@ -21,5 +35,9 @@ namespace PetDesk.Paws.Domain.Clients
             LastName = lastName;
         }
 
+        public void AddAppointment(Guid appointmentId)
+        {
+            _appointments.Add(appointmentId);
+        }
     }
 }

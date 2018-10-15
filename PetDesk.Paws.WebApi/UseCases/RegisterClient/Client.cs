@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PetDesk.Paws.WebApi.UseCases.RequestAppointment
+namespace PetDesk.Paws.WebApi.UseCases.RegisterClient
 {
-    public class User
+    public class Client
     {
-        public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }

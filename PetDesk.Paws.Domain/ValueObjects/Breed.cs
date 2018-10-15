@@ -5,26 +5,26 @@ using System.Text;
 namespace PetDesk.Paws.Domain.ValueObjects
 {
     //I could turn this into a base class 
-    public sealed class Name
+    public sealed class Breed
     {
         private string _text;
 
-        public Name(string text)
+        public Breed(string text)
         {
             //Write all the business logic here 
 
             if (string.IsNullOrWhiteSpace(text))
-                throw new NameShouldNotBeEmptyException("The 'Name' field is required");
+                throw new BreedShouldNotBeEmptyException("The 'Breed' field is required");
 
             _text = text;
         }
 
-        public static implicit operator Name(string text)
+        public static implicit operator Breed(string text)
         {
-            return new Name(text);
+            return new Breed(text);
         }
 
-        public static implicit operator string(Name name)
+        public static implicit operator string(Breed name)
         {
             return name._text;
         }
@@ -46,7 +46,7 @@ namespace PetDesk.Paws.Domain.ValueObjects
                 return obj.ToString() == _text;
             }
 
-            return ((Name)obj)._text == _text;
+            return ((Breed)obj)._text == _text;
         }
     }
 }

@@ -8,6 +8,6 @@ namespace PetDesk.Paws.Application.UseCases.RequestAppointment
 {
     public interface IRequestAppointment
     {
-        Task<AppointmentResult> CreateAppointment(string appointmentType, DateTime requestDate, Guid clientId);
+        Task<AppointmentResult> CreateAppointment(string appointmentType, DateTime requestDate, Guid clientId, Guid patientId);
     }
 }

@@ -22,5 +22,13 @@ namespace PetDesk.Paws.Application
             : base(message)
         { }
     }
-  
+
+    internal class PatientNotFoundException : Exception
+    {
+        internal PatientNotFoundException(string message)
+            : base(message)
+        { }
+    }
+
+    
 }

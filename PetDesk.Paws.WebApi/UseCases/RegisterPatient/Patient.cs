@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PetDesk.Paws.WebApi.UseCases.RequestAppointment
+namespace PetDesk.Paws.WebApi.UseCases.RegisterPatient
 {
-    public class Animal
+    public class Patient
     {
-        public int AnimalId { get; set; }
         public string FirstName { get; set; }
         public string Species { get; set; }
         public string Breed { get; set; }
+
+        public Guid ClientId { get; set; }
     }
 }

@@ -6,18 +6,22 @@ using System.Text;
 
 namespace PetDesk.Paws.Domain.Patients
 {
-    public sealed class Patient
+    public sealed class Patient : AggregateRoot
     {
-        public Id Id { private set; get; }
 
         public Name FirstName { private set; get; }
+        public Breed Breed { private set; get; }
+        public Species Species { private set; get; }
 
         private Patient() { }
 
-        public Patient(Name firstName)
+        public Patient(Name firstName, Breed breed, Species species)
         {
             Id = Guid.NewGuid();
             FirstName = firstName;
+            Breed = breed;
+            Species = species;
+
         }
     }
 }

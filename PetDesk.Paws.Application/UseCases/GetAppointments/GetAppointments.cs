@@ -22,7 +22,7 @@ namespace PetDesk.Paws.Application.UseCases.GetAppointments
             Appointment appointment = await _appointmentReadOnlyRepository.GetById(id);
 
             if (appointment == null)
-                throw new AppointmentNotFoundException($"The appointment {id} does not exists or is not processed yet.");
+                throw new AppointmentNotFoundException($"The appointment {id} does not exists.");
 
             AppointmentResult appointmentResult = new AppointmentResult(appointment);
                 return appointmentResult;

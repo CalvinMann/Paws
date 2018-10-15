@@ -4,29 +4,29 @@ using System.Text;
 
 namespace PetDesk.Paws.Domain.ValueObjects
 {
-    //I could turn this into a base class 
-    public sealed class Name
+    public class DateWithTime
     {
-        private string _text;
+        private DateTime _dt;
 
-        public Name(string text)
+        public DateWithTime(DateTime dateTime)
         {
             //Write all the business logic here 
 
-            if (string.IsNullOrWhiteSpace(text))
+            //Write logic to make sure the date and time isnt less than Dt.Now
+            if (dateTime == null)
                 throw new NameShouldNotBeEmptyException("The 'Name' field is required");
 
-            _text = text;
+            _dt = dateTime;
         }
 
-        public static implicit operator Name(string text)
+        public static implicit operator DateWithTime(DateTime dateTime)
         {
-            return new Name(text);
+            return new DateWithTime(dateTime);
         }
 
-        public static implicit operator string(Name name)
+        public static implicit operator DateTime(DateWithTime dateTime)
         {
-            return name._text;
+            return dateTime._dt;
         }
 
         public override bool Equals(object obj)
@@ -41,12 +41,7 @@ namespace PetDesk.Paws.Domain.ValueObjects
                 return true;
             }
 
-            if (obj is string)
-            {
-                return obj.ToString() == _text;
-            }
-
-            return ((Name)obj)._text == _text;
+            return ((DateWithTime)obj)._dt == _dt;
         }
     }
 }
