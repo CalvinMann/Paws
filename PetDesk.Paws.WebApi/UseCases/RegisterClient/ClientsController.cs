@@ -22,8 +22,7 @@ namespace PetDesk.Paws.WebApi.UseCases.RegisterClient
         }
         // POST api/<controller>
         [HttpPost]
-        [Route("Register")]
-        public async Task<IActionResult> Register([FromBody]Client client)
+        public async Task<IActionResult> Register([FromBody] Client client)
         {
             if (ModelState.IsValid)
             {

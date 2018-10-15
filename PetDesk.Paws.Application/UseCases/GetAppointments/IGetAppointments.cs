@@ -8,6 +8,7 @@ namespace PetDesk.Paws.Application.UseCases.GetAppointments
 {
     public interface IGetAppointments
     {
+
         Task<AppointmentResult> GetAppointmentById(Guid id);
         Task<IEnumerable<AppointmentResult>> GetAllAppointments();
     }

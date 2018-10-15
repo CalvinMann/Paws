@@ -28,6 +28,31 @@ body {
     margin: 15px;
 }
 
+
+input {
+    max-width: 280px;
+}
+
+.entry {
+    min-width: 250px;
+    display: inline-block;
+}
+
+.details, .edit, .delete {
+    cursor: pointer;
+    color: #337ab7;
+    text-decoration: underline;
+}
+
+ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+#content {
+    min-height: 500px;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */

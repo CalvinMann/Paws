@@ -8,6 +8,7 @@ namespace PetDesk.Paws.Application.Repositories
 {
     public interface IClientReadOnlyRepository
     {
+        Task<bool> ExistsById(Guid id);
         Task<Client> GetById(Guid id);
         Task<IEnumerable<Client>> GetAll();
     }

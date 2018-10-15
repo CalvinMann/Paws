@@ -25,12 +25,12 @@ namespace PetDesk.Paws.Application.UseCases.RequestAppointment
         public async Task<AppointmentResult> CreateAppointment(string appointmentType, DateTime requestDate, Guid clientId, Guid patientId)
         {
 
-            Client client = await _clientReadOnlyRepository.GetById(clientId);
-            if (client == null)
+            bool clientExists = await _clientReadOnlyRepository.ExistsById(clientId);
+            if (!clientExists)
                 throw new ClientNotFoundException($"The client {clientId} does not exists.");
 
-            Patient patient = await _patientReadOnlyRepository.GetById(patientId);
-            if (client == null)
+            bool patientExists = await _patientReadOnlyRepository.ExistsById(patientId);
+            if (!patientExists)
                 throw new PatientNotFoundException($"The patient {patientId} does not exists.");
 
 

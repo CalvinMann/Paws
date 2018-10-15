@@ -6,8 +6,20 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a asp-page="/Dashboard" class="navbar-brand">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
         @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 - PAWSs</p>
+        </footer>
     </div>
+
 </body>
 </html>

@@ -10,9 +10,20 @@ namespace PetDesk.Paws.Application.Results
 
     public class AppointmentResult
     {
+        public string AppointmentType { get; set; }
+        public DateTime RequestDate { get; set; }
+        public Guid ClientId { get; set; }
+        public Guid PatientId { get; set; }
+
         public AppointmentResult(Appointment appointment)
         {
-            //Do the mappings here
+            //Do the mappings here 
+            //Could look into using AutoMapper
+
+            AppointmentType = appointment.AppointmentType;
+            RequestDate = appointment.RequestedDateTime;
+            ClientId = appointment.ClientId;
+            PatientId = appointment.PatientId;
         }
 
     }

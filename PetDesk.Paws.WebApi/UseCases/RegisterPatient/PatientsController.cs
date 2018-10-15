@@ -11,19 +11,18 @@ using PetDesk.Paws.Application.UseCases.RegisterPatient;
 namespace PetDesk.Paws.WebApi.UseCases.RegisterPatient
 {
     [Route("api/[controller]")]
-    public class PatientController : Controller
+    public class PatientsController : Controller
     {
         private readonly IRegisterPatient _registerPatient;
 
-       public PatientController(IRegisterPatient registerPatient)
+       public PatientsController(IRegisterPatient registerPatient)
         {
             _registerPatient = registerPatient;
         }
 
         // POST api/<controller>
         [HttpPost]
-        [Route("Register")]
-        public async Task<IActionResult> Register([FromBody]Patient patient)
+        public async Task<IActionResult> Register([FromBody] Patient patient)
         {
             if (ModelState.IsValid)
             {

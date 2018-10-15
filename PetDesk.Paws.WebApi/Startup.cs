@@ -18,6 +18,9 @@ using PetDesk.Paws.Application.Repositories;
 using PetDesk.Paws.Application.UseCases.GetAppointments;
 using PetDesk.Paws.Infrastructure.Repositories.EntityFramework;
 using PetDesk.Paws.Application.UseCases.RequestAppointment;
+using PetDesk.Paws.Application.UseCases.RegisterClient;
+using PetDesk.Paws.Infrastructure.Repositories.InMemory;
+using PetDesk.Paws.Application.UseCases.RegisterPatient;
 
 namespace PetDesk.Paws.WebApi
 {
@@ -48,10 +51,10 @@ namespace PetDesk.Paws.WebApi
             {
                 options.DescribeAllEnumsAsStrings();
 
-                options.IncludeXmlComments(
-                   Path.ChangeExtension(
-                       typeof(Startup).Assembly.Location,
-                       "xml"));
+                //options.IncludeXmlComments(
+                //   Path.ChangeExtension(
+                //       typeof(Startup).Assembly.Location,
+                //       "xml"));
 
                 options.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
                 {
@@ -73,6 +76,10 @@ namespace PetDesk.Paws.WebApi
             services.AddDbContext<PawsDbContext>(o => o.UseSqlServer(connectionString));
 
             //Application
+           
+            services.AddScoped<IRegisterClient, RegisterClient>();
+            services.AddScoped<IRegisterPatient, RegisterPatient>();
+            services.AddScoped<IRequestAppointment, RequestAppointment>();
             services.AddScoped<IGetAppointments, GetAppointments>();
             services.AddScoped<IRequestAppointment, RequestAppointment>();
 
@@ -80,6 +87,14 @@ namespace PetDesk.Paws.WebApi
             services.AddScoped<IAppointmentReadOnlyRepository, Infrastructure.Repositories.InMemory.AppointmentsRepository>();
             services.AddScoped<IAppointmentWriteOnlyRepository, Infrastructure.Repositories.InMemory.AppointmentsRepository>();
 
+            services.AddScoped<IClientReadOnlyRepository, Infrastructure.Repositories.InMemory.ClientsRepository>();
+            services.AddScoped<IClientWriteOnlyRepository, Infrastructure.Repositories.InMemory.ClientsRepository>();
+
+            services.AddScoped<IPatientReadOnlyRepository, Infrastructure.Repositories.InMemory.PatientsRepository>();
+            services.AddScoped<IPatientWriteOnlyRepository, Infrastructure.Repositories.InMemory.PatientsRepository>();
+
+
+            services.AddSingleton(typeof(Context)); //InMemoryContext
 
 
             ////// Auto Mapper Configurations

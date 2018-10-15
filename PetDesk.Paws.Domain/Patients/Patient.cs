@@ -13,14 +13,18 @@ namespace PetDesk.Paws.Domain.Patients
         public Breed Breed { private set; get; }
         public Species Species { private set; get; }
 
+        public Id ClientId { private set; get; }
+
         private Patient() { }
 
-        public Patient(Name firstName, Breed breed, Species species)
+        public Patient(Name firstName, Breed breed, Species species, Guid clientId)
         {
             Id = Guid.NewGuid();
             FirstName = firstName;
             Breed = breed;
             Species = species;
+
+            ClientId = clientId;
 
         }
     }

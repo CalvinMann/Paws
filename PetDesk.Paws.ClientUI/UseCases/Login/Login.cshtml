@@ -1,37 +1,38 @@
 ﻿
 <h2>Welcome To PAWS</h2>
 
+<p>
+    <h3>FRAMEWORKS</h3>
+    <br>ASP.Net Core MVC - Client Application
+    <br>WebApi - To Recieve Messages. Any client can interface to POST
+    <br>SignalR - Real time appointments (mulit clients. Transport agnostic/adaptable for non websocket clients)
+    <br>EntityFramework or Dapper + SQL - Data persistence
+    <br>
+    <br>
+</p>
 
 
-<h3>FRAMEWORKS</h3>
-<h4>WebApi - To Recieve Messages. Any client can interface to POST</h4>
-    SignalR - Real time appointments (mulit clients. Transport agnostic/adaptable for non websocket clients)
-    EntityFramework or Dapper + SQL - Data persistence
-    (Bonus) Twilio - Appointment Reschedule
+
+<p>
+    <h3>ARCHITECTURE </h3>
+    <br>Clean Architecture - Clear and Consise UseCases
+    <br>CQRS - Command and Query seperation for clarity and concerns
+    <br>DDD - For business rules. Reuse of business logic is possibly with seperating domain logic. Well encapsulated
+    <br>
+    <br>
+</p>
 
 
-    ARCHITECTURE
-    Clean Architecture - Clear and Consise UseCases
-    CQRS - Command and Query seperation for clarity
-    DDD - For business rules. Reuse of business logic is possibly with seperating domain logic
+<p>
+    <h3>BUSINESS VALUE IDEAS</h3>
+    <br>EventSourcing - Adding event sourcing enables us to track all events from users and the application.
 
-    BUSINESS VALUE (PetDesk Competitive Advantage Suggestions)
-    EventSourcing - Adding event sourcing enables us to track all events from users and the application.
-    This could be extrememly valuable data for pet desk or its customers. Providing insights
-    enables better decision making.
-    (ex: knowing when the most appointments are scheduled. What services. All real time on dashboard)
+    <br>This could be extrememly valuable data for pet desk or its customers. Providing insights
+    <br>enables better decision making.
+    <br>(ex: knowing when the most appointments are scheduled. What services. All real time on dashboard)
+    <br>
+</p>
 
-
-    I choose to use MVC strictly as a web client instead of incorporating the whole application into one project. 
-    Although implementing all of the code into one MVC project is less time consuming and doesnt need to use HTTP transfers,
-    I thought the additional time and complexity costs would pay off in the long run. I choose to implement a webAPI as 
-    the applicaiton interface to keep it loosely coupled from any particular UI and have all clients communicate in one place. 
-    This enables any UI to take advantage of the API whether it be a mobile device, 
-    desktop application, different web clients..ect. 
-
-
-    I decided to use Ubiqutos language that cloesely relates to the vet domain (aka. Patient, Client)
-   
- <form asp-controller="Dashboard" asp-action="Index">
+    <form asp-controller="Dashboard" asp-action="Index">
         <button type="submit">Go To Dashboard</button>
     </form>

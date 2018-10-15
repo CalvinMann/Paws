@@ -13,13 +13,16 @@ using PetDesk.Paws.Infrastructure.WebSockets.SignalR;
 namespace PetDesk.Paws.WebApi.UseCases.RequestAppointment
 {
     [Route("api/[controller]")]
-    public class AppointmentController : Controller
+    public class AppointmentsController : Controller
     {
-        private IRequestAppointment _requestAppointment;
+        private readonly IRequestAppointment _requestAppointment;
+        private readonly IHubContext<AppointmentHub> _hubContext;
 
-        public AppointmentController(IRequestAppointment requestAppointment)
+        public AppointmentsController(IRequestAppointment requestAppointment, 
+            IHubContext<AppointmentHub> hubContext)
         {
             _requestAppointment = requestAppointment;
+            _hubContext = hubContext;
         }
 
         // POST api/appointment
@@ -29,9 +32,13 @@ namespace PetDesk.Paws.WebApi.UseCases.RequestAppointment
 
             if (ModelState.IsValid)
             {
+                //Run check to make sure there are no conflicting appointments
+
                 AppointmentResult appointmentResult = await _requestAppointment.CreateAppointment(
                           appointment.AppointmentType, appointment.RequestDate, 
                           appointment.ClientId, appointment.PatientId);
+
+              await _hubContext.Clients.All.SendAsync("ReceiveMessage", "Test");
 
                 return Ok();
             }

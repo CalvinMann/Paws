@@ -26,18 +26,41 @@ namespace PetDesk.Paws.Domain.Clients
         private AppointmentCollection _appointments;
 
 
-        private Client() { }
+        public IReadOnlyCollection<Guid> Patients
+        {
+            get
+            {
+                IReadOnlyCollection<Guid> readOnly = _patients.GetPatientIds();
+                return readOnly;
+            }
+        }
+        private PatientsCollection _patients;
+
+
+        private Client()
+        {
+            _appointments = new AppointmentCollection();
+            _patients = new PatientsCollection();
+        }
 
         public Client(Name firstName, Name lastName)
         {
             Id = Guid.NewGuid();
             FirstName = firstName;
             LastName = lastName;
+
+            _appointments = new AppointmentCollection();
+            _patients = new PatientsCollection();
         }
 
         public void AddAppointment(Guid appointmentId)
         {
             _appointments.Add(appointmentId);
+        }
+
+        public void AddPatient(Guid patientId)
+        {
+            _patients.Add(patientId);
         }
     }
 }

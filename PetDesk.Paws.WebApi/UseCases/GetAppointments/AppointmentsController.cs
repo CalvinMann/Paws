@@ -24,11 +24,12 @@ namespace PetDesk.Paws.WebApi.UseCases.GetAppointments
         /// <summary>
         /// Get all appointments
         /// </summary>
+        [HttpGet]
         public async Task<IActionResult> Get()
         {
-            IEnumerable<AppointmentResult> output = await _getAppointments.GetAllAppointments();
+            IEnumerable<AppointmentResult> appointmentResults = await _getAppointments.GetAllAppointments();
 
-            return null;
+            return Ok(appointmentResults);
         }
     }
 }
